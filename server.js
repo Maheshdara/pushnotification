@@ -28,7 +28,9 @@ app.post("/send-notification", async (req, res) => {
   };
 
   try {
-    const response = await admin.messaging().sendEachForMulticast(message);
+    // const response = await admin.messaging().sendEachForMulticast(message);
+    const response = await admin.messaging().sendMulticast(message);
+    
     res.json({
       success: true,
       message: "Notification sent",
@@ -45,3 +47,4 @@ app.post("/send-notification", async (req, res) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+
