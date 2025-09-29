@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
-const serviceAccount = require("./pushdemo-f910e-firebase-adminsdk-fbsvc-0be56dcfc6.json"); // your service account JSON
-
+// const serviceAccount = require("./pushdemo-f910e-firebase-adminsdk-fbsvc-0be56dcfc6.json"); // your service account JSON
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 const app = express();
 app.use(bodyParser.json());
@@ -48,3 +48,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
+
